@@ -303,10 +303,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,0.9
   </div>
   <div class="filter-bar">
     <button class="filter-btn active" onclick="filterCatalog('todos',this)">Todos</button>
-    <button class="filter-btn" onclick="filterCatalog('Inspirada',this)">Inspirada</button>
-    <button class="filter-btn" onclick="filterCatalog('Hombre',this)">Hombre</button>
-    <button class="filter-btn" onclick="filterCatalog('Mujer',this)">Mujer</button>
-    <button class="filter-btn" onclick="filterCatalog('Decants original',this)">original</button>
+    <button class="filter-btn" onclick="filterCatalog('inspirada',this)">Inspirada</button>
+    <button class="filter-btn" onclick="filterCatalog('hombre',this)">Hombre</button>
+    <button class="filter-btn" onclick="filterCatalog('mujer',this)">Mujer</button>
+    <button class="filter-btn" onclick="filterCatalog('original',this)">Original</button>
     <div class="view-toggle">
       <button class="view-btn active" data-view="grid" onclick="setCatalogView('grid', this)">Cuadros</button>
       <button class="view-btn" data-view="list" onclick="setCatalogView('list', this)">Lista</button>
@@ -398,10 +398,52 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,0.9
 <script>
 
 const products = [
-  {id:1,  brand:'INSPIRADO',  name:'9-Am Dive', imagen:'imagenes/nine-am.png', desc:'Fresco, cítrico, marino, limpio y acuático. Perfecto para el día.',      family:'Original', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true,  oferta:true, agotado:false},
-  {id:2,  brand:'INSPIRADO', name:'Khamrah',  imagen:'imagenes/khamra.png',      desc:'Dulce, avainillado, especiado, cálido con notas de canela.',              family:'dulce',    tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true,  oferta:true, agotado:false}, 
-  {id:3,  brand:'INSPIRADO',        name:'Mandarin Sky',     imagen:'imagenes/mandarin.png', desc:'Cítrico, dulce, gourmand y aromático. Notas de mandarina fresca.',          family:'dulce',  tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true,  oferta:true, agotado:false},
-  {id:4,  brand:'INSPIRADO',            name:'Hawas Ice',      imagen:'imagenes/hawas-ice.png',  desc:'Manzana, limón, bergamota y cardamomo. Fresco y elegante.',        family:'Aromatico', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true,  oferta:true, agotado:false},
+  {id:1,  brand:'INSPIRADO',  name:'9-Am Dive', imagen:'imagenes/nine-am.png', desc:'Fresco, cítrico, marino, limpio y acuático. Perfecto para el día.',      family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true,  oferta:true, agotado:false},
+  {id:2,  brand:'INSPIRADO', name:'Khamrah',  imagen:'imagenes/khamra.png',      desc:'Dulce, avainillado, especiado, cálido con notas de canela.',              family:'hombre',    tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true,  oferta:true, agotado:false}, 
+  {id:3,  brand:'INSPIRADO',        name:'Mandarin Sky',     imagen:'imagenes/mandarin.png', desc:'Cítrico, dulce, gourmand y aromático. Notas de mandarina fresca.',          family:'hombre',  tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true,  oferta:true, agotado:false},
+  {id:4,  brand:'INSPIRADO',            name:'GENTLEMAN GIVENCHY',      imagen:'imagenes/GENTLEMAN-GIVENCHY.png',  desc:'Amaderado,Wisky, iris, ambar, atalcado, para la noche',        family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true,  oferta:true, agotado:false},
+  {id:5,  brand:'INSPIRADO',            name:'HAWAS KOBRA',      imagen:'imagenes/HAWAS-KOBRA.png',  desc:'Citrico, fresco, amaderado, ambar, para el dia',        family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true,  oferta:true, agotado:false},
+  {id:6,  brand:'INSPIRADO',            name:'INVICTUS',      imagen:'imagenes/INVICTUS.png',  desc:'agrio, aromatico, picante, acuatico, para el dia',        family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true,  oferta:true, agotado:false},
+  {id:7,  brand:'INSPIRADO',            name:'INVICTUS VICTORY ELIXIR',      imagen:'imagenes/INVICTUS-VICTORY-ELIXIR.png',  desc:'vainilla,dulce, ambar, para la noche  .',        family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},
+  {ml:90,precio:40000}], featured:true,  oferta:true, agotado:false},
+  {id:9,  brand:'INSPIRADO',            name:'1 MILLION PACO RABANNE',      imagen:'imagenes/one-million.png',  desc:'Calido, dulce, amaderado, para la noche.',        family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true,  oferta:true, agotado:false},
+
+  {id:10,  brand:'INSPIRADO',            name:'PURE XS PACO RABANNE',      imagen:'imagenes/pure-xs.png',  desc:'Calido, dulce, avainillado, para la noche..',        family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true,  oferta:true, agotado:false},
+
+  {id:11,  brand:'INSPIRADO',            name:'ODYSSEY MEGA',      imagen:'imagenes/mega.png',  desc:'citrico, aromatico, especiado, para el dia.',        family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true,  oferta:true, agotado:false},
+
+  {id:12,  brand:'INSPIRADO',            name:'BLEU DE CHANEL CHANEL',      imagen:'imagenes/bleu-chanel.png',  desc:'Citrico, amadderado, calido y aromatico, Versatil .',        family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true,  oferta:true, agotado:false},
+  
+  {id:13,  brand:'INSPIRADO',            name:'SAUVAGE EAU FORTE DIOR',      imagen:'imagenes/sauvage.png',  desc:'Fresco-especiado, citrico, ambar, amaderado, versatil.',        family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true,  oferta:true, agotado:false},
+  
+  {id:14,  brand:'INSPIRADO',            name:'SAUVAGE ELIXIR DIOR',      imagen:'imagenes/sauvage-elixir.png',  desc:'amaderado, especiado, calido, para la noche.',        family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true,  oferta:true, agotado:false},
+  
+  {id:15,  brand:'INSPIRADO',            name:'LACOSTE WHITE',      imagen:'imagenes/lacoste-blanca.png',  desc:'Citrico, amadderado, calido y aromatico, Para el dia .',        family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true,  oferta:true, agotado:false},
+  
+  {id:16,  brand:'INSPIRADO',            name:'LACOSTE RED',      imagen:'imagenes/lacoste-red.png',  desc:'Afrutado, fresco, tropial, para el dia.',        family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true,  oferta:true, agotado:false},
+  
+  {id:17,  brand:'INSPIRADO',            name:'LACOSTE BLACK',      imagen:'imagenes/lacoste-black.png',  desc:'Amaderado, aromatico, acuatico, fresco, versatil.',        family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true,  oferta:true, agotado:false},
+  {id:18, brand:'INSPIRADO', name:'His Confession Lattafa',  imagen:'imagenes/His-Confession.png',  desc:'Ambar, avanillado, aromatico, para la noche.',   family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true, oferta:true, agotado:false},
+{id:19, brand:'INSPIRADO', name:'ASAD ELIXIR',             imagen:'imagenes/ASAD-ELIXIR.png',     desc:'Ambar, amaderado, tabaco, dulce, para la noche.', family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true, oferta:true, agotado:false},
+{id:20, brand:'INSPIRADO', name:'Asad Lattafa',            imagen:'imagenes/Asad-Lattafa.png',    desc:'Ambar, fresco, calido, amaderado, para la noche.',family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true, oferta:true, agotado:false},
+{id:21, brand:'INSPIRADO', name:'Asad Bourbon',            imagen:'imagenes/Asad-Bourbon.png',    desc:'Avainillado, cacao, dulce, lavanda, para la noche.',family:'hombre',tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true, oferta:true, agotado:false},
+{id:22, brand:'INSPIRADO', name:'Eros Versace',            imagen:'imagenes/eros.png',            desc:'Menta, manzana verde y limón, versátil.',         family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true, oferta:true, agotado:false},
+{id:23, brand:'INSPIRADO', name:'Eros Flame Versace',      imagen:'imagenes/flame.png',           imagen:'imagenes/flame.png',    desc:'Cítrico, fresco especiado, calido, para la noche.',family:'hombre',tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true, oferta:true, agotado:false},
+{id:24, brand:'INSPIRADO', name:'Winner Sport Esika',                  imagen:'imagenes/winner.png',        desc:'Citrico, amaderado, aromatico, para el dia.',                    family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true, oferta:true, agotado:false},
+{id:25, brand:'INSPIRADO', name:'Dorsay Esika',                        imagen:'imagenes/dorsay.png',        desc:'Amaderado, citrico, aromatico, versátil.',                        family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true, oferta:true, agotado:false},
+{id:26, brand:'INSPIRADO', name:'Polo Blue Ralph Lauren',              imagen:'imagenes/polo-blue.png',     desc:'Acuatico, fresco especiado, verde, para el dia.',                 family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true, oferta:true, agotado:false},
+{id:27, brand:'INSPIRADO', name:'Light Blue Pour Homme',               imagen:'imagenes/light.png',         desc:'Citrico, fresco, aromatico, para el dia.',                        family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true, oferta:true, agotado:false},
+{id:28, brand:'INSPIRADO', name:'Toy Boy Moschino',                    imagen:'imagenes/toy-boy.png',       desc:'Floral, amaderado, fresco, muy versátil.',                        family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true, oferta:true, agotado:false},
+{id:29, brand:'INSPIRADO', name:'Toy Boy 2',                           imagen:'imagenes/toy2.png',          desc:'Fresco, amaderado, calido, café, para la noche.',                 family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true, oferta:true, agotado:false},
+{id:30, brand:'INSPIRADO', name:'Althaïr Parfums de Marly',            imagen:'imagenes/althari.png',       desc:'Dulce, avainillado, canela, para la noche.',                      family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true, oferta:true, agotado:false},
+{id:31, brand:'INSPIRADO', name:'Valentino Uomo Born in Roma Intense', imagen:'imagenes/valentino.png',     desc:'Lavanda, avainillado, aromatico, para la noche.',                 family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true, oferta:true, agotado:false},
+{id:32, brand:'INSPIRADO', name:'Valentino Uomo Born in Roma',         imagen:'imagenes/valentino2.png',   desc:'Mineral, amaderado, aromatico, para el dia.',                     family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true, oferta:true, agotado:false},
+{id:33, brand:'INSPIRADO', name:'Le Male Le Parfum JPG',               imagen:'imagenes/le-male.png',       desc:'Calido especiado, avainillado, lavanda, para la noche.',          family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true, oferta:true, agotado:false},
+{id:34, brand:'INSPIRADO', name:'Ultra Male Jean Paul Gaultier',       imagen:'imagenes/ultra-male.png',    desc:'Avainillado, afrutado, aromatico, dulce, para la noche.',         family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true, oferta:true, agotado:false},
+{id:35, brand:'INSPIRADO', name:'Le Male Elixir Jean Paul Gaultier',   imagen:'imagenes/le-male-elixir.png',desc:'Avainillado, dulce, amielado, para la noche.',                     family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true, oferta:true, agotado:false},
+{id:36, brand:'INSPIRADO', name:'Le Beau Le Parfum Jean Paul Gaultier',imagen:'imagenes/le-beau.png',       desc:'Dulce, coco, ambar, avainillado, versátil.',                      family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true, oferta:true, agotado:false},
+{id:37, brand:'INSPIRADO', name:'Scandal Jean Paul Gaultier',          imagen:'imagenes/scandal.png',       desc:'Caramelo, aromatico, dulce, para la noche.',                      family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true, oferta:true, agotado:false},
+{id:38, brand:'INSPIRADO', name:'212 VIP Black',                       imagen:'imagenes/212-black.png',     desc:'Aromatico, avainillado, especiado suave, para la noche.',         family:'hombre', tamaños:[{ml:30,precio:18000},{ml:60,precio:30000},{ml:90,precio:40000}], featured:true, oferta:true, agotado:false},
 ];
 
 let cart=[];
@@ -458,10 +500,41 @@ function cartImgHTML(p){
 const catalogFilters={family:'todos',search:'',priceMin:0,priceMax:Infinity};
 let catalogView='grid';
 
+function normalizeFilterValue(value){
+  const normalized=String(value||'').trim().toLowerCase();
+  const aliases={
+    todos:'todos',
+    all:'todos',
+    inspirada:'inspirada',
+    inspirado:'inspirada',
+    hombre:'hombre',
+    mujer:'mujer',
+    original:'original',
+    decants:'original',
+    decantsoriginal:'original',
+    amaderado:'amaderado',
+    fresco:'fresco',
+    dulce:'dulce',
+    aromatico:'aromatico',
+    aromatico:'aromatico'
+  };
+  return aliases[normalized] || normalized;
+}
+
+function familyMatchesProduct(product, selectedFilter){
+  const selected=normalizeFilterValue(selectedFilter);
+  if(selected==='todos') return true;
+  const productFamily=normalizeFilterValue(product.family);
+  if(selected==='inspirada'){
+    return productFamily==='original' || /inspirado/.test((product.brand||'').toLowerCase()) || /inspirado/.test((product.name||'').toLowerCase());
+  }
+  return productFamily===selected;
+}
+
 function getFilteredProducts(list){
   const searchText=catalogFilters.search.trim().toLowerCase();
   return (list||products).filter(p=>{
-    const familyOk=catalogFilters.family==='todos'||p.family===catalogFilters.family;
+    const familyOk=familyMatchesProduct(p, catalogFilters.family);
     const precioMin=Math.min(...p.tamaños.map(t=>t.precio));
     const priceOk=precioMin>=catalogFilters.priceMin&&precioMin<=(catalogFilters.priceMax===Infinity?Number.MAX_VALUE:catalogFilters.priceMax);
     const text=`${p.brand} ${p.name} ${p.desc}`.toLowerCase();
@@ -491,10 +564,11 @@ function setCatalogView(view, btn){
 }
 
 function setFamilyFilter(value, btn){
-  catalogFilters.family=value;
-  document.querySelectorAll('.filter-option').forEach(el=>el.classList.remove('active'));
+  const normalized=normalizeFilterValue(value);
+  catalogFilters.family=normalized;
+  document.querySelectorAll('.filter-option').forEach(el=>el.classList.toggle('active', normalizeFilterValue(el.dataset.family)===normalized));
+  document.querySelectorAll('.filter-btn').forEach(el=>el.classList.toggle('active', normalizeFilterValue(el.textContent)===normalized));
   if(btn)btn.classList.add('active');
-  document.querySelectorAll('.filter-btn').forEach(el=>el.classList.toggle('active', el.textContent.toLowerCase()===value.toLowerCase()));
 }
 
 function updateSearchFilter(value){catalogFilters.search=value}
