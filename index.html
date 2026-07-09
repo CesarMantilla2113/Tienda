@@ -633,8 +633,8 @@ function renderCart(){
     return;
   }
   const sub=cart.reduce((s,i)=>s+i.price*i.qty,0);
-  const shipping=sub > 35000 ? 0 : 15000;
-  const total=sub + shipping;
+  const shipping=sub >= 35000 ? 0 : 'El costo de envío se confirma vía WhatsApp, envio gratis a partir de $35.000';
+  const total=typeof shipping === 'number' ? sub + shipping : sub;
   el.innerHTML=`<div class="cart-items">${cart.map(item=>`
     <div class="cart-item">
       <div class="ci-img">${cartImgHTML(item)}</div>
@@ -684,14 +684,14 @@ function renderCart(){
         <label for="transferencia">Transferencia bancaria</label>
       </div>
       <div class="payment-option">
-        <input type="radio" id="mercadopago" name="payment" value="mercadopago" required>
-        <label for="mercadopago">Mercado Pago</label>
+        <input type="radio" id="pagoenefectivo" name="payment" value="pagoenefectivo" required>
+        <label for="pagoenefectivo">Pago en efectivo</label>
       </div>
     </div>
   </div>
   <div class="cart-summary">
     <div class="summary-row"><span>Subtotal</span><span>${fmt(sub)}</span></div>
-    <div class="summary-row"><span>Envío estimado</span><span>${fmt(shipping)}</span></div>
+    <div class="summary-row"><span>Envío estimado</span><span>${typeof shipping === 'number' ? fmt(shipping) : shipping}</span></div>
     <div class="summary-row total"><span>Total</span><span>${fmt(total)}</span></div>
     <button class="checkout-btn" onclick="proceedToPayment()">Proceder al pago</button>
   </div>`;
@@ -769,7 +769,8 @@ function proceedToPayment(){
   cart.forEach(item => {
     message += `- ${item.brand} ${item.name} (${item.ml}) x${item.qty}: ${fmt(item.price * item.qty)}\n`;
   });
-  message += `\nPrecio: ${fmt(sub)}\nEnvío: ${fmt(shipping)}\n*Total*: ${fmt(total)}\n\nDatos de envío:\nNombre: ${fullname}\nDirección: ${address}\nCiudad: ${city}\nEmail: ${email}\nTeléfono: ${phone}\nObservaciones: ${notes || 'Ninguna'}\n\nMétodo de pago: ${payment.value === 'transferencia' ? 'Transferencia bancaria' : 'Mercado Pago'}`;
+  message += `\nPrecio: ${fmt(sub)}\nEnvío: ${fmt(shipping)}\n*Total*: ${fmt(total)}\n\nDatos de envío:\nNombre: ${fullname}\nDirección: ${address}\nCiudad: ${city}\nEmail: ${email}\nTeléfono: ${phone}\nObservaciones: ${notes || 'Ninguna'}\n\nMétodo de pago: ${payment.value === 'transferencia' ? 'Transferencia bancaria' : 'Pago en efectivo'}`;
+
 
   // Codificar mensaje
   const encodedMessage = encodeURIComponent(message);
